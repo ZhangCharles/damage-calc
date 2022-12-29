@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "damage-calc",
+    "productName": "Damage Calculator",
     "version": "1.0.0"
   },
   "tauri": {
@@ -63,7 +63,7 @@
         "minWidth": 900,
         "minHeight": 800,
         "resizable": true,
-        "title": "damage-calc"
+        "title": "Damage Calculator"
       }
     ]
   }

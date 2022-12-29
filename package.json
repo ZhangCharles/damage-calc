@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@intlify/unplugin-vue-i18n": "^0.8.1",
-    "@smogon/calc": "^0.7.0",
+    "@smogon/calc": "^0.8.0",
     "@tauri-apps/api": "^1.2.0",
     "element-plus": "^2.2.27",
     "pinia": "^2.0.28",
