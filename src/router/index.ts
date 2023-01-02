@@ -3,8 +3,8 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    name: 'calc',
-    component: () => import('@/views/calc.vue')
+    name: 'calculator',
+    component: () => import('@/views/calculator.vue')
   }
 ];
 

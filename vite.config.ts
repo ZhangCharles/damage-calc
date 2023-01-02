@@ -5,6 +5,7 @@ import path from 'path';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import vue from "@vitejs/plugin-vue";
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,7 +18,32 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     VueI18nPlugin({
-      
+
+    }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: false,
+      devOptions: {
+        enabled: true
+      },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /(.*?)\.(js|css|ts)/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'js-css-cache',
+            },
+          },
+          {
+            urlPattern: /(.*?)\.(png|jpe?g|svg|gif|bmp|psd|tiff|tga|eps)/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'image-cache',
+            }
+          }
+        ]
+      }
     })
   ],
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`

@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const useStore = defineStore('mian', {
+export const useStore = defineStore('main', {
   state: () => {
     return ({
       pokemon1: {
+        id: '',
         name: '',
         ability: '',
         abilityOn: false,
@@ -60,6 +61,7 @@ export const useStore = defineStore('mian', {
         }
       },
       pokemon2: {
+        id: '',
         name: '',
         ability: '',
         abilityOn: false,

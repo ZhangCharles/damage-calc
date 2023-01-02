@@ -8,7 +8,31 @@ function performCalculations(gen: any, pm1: any, pm2: any, field: any) {
   var p1field = createField(field)
   var p2field = p1field.clone().swap()
   damageResults = calculateAllMoves(gen, p1, p1field, p2, p2field)
-  return damageResults
+  
+  var result: any = [{}, {}]
+  for (var i = 0; i < 4; i++) {
+    result[0][i] = damageResults[0][i]
+    result[1][i] = damageResults[1][i]
+
+    result[0][i].moveDesc = damageResults[0][i].moveDesc('%')
+    result[1][i].moveDesc = damageResults[1][i].moveDesc('%')
+
+    result[0][i].range = damageResults[0][i].range()
+    result[1][i].range = damageResults[1][i].range()
+
+    result[0][i].desc = getDesc(damageResults[0][i])
+    result[1][i].desc = getDesc(damageResults[1][i])
+
+    result[0][i].recoil = damageResults[0][i].recoil('%')
+    result[1][i].recoil = damageResults[1][i].recoil('%')
+
+    result[0][i].recovery = damageResults[0][i].recovery('%')
+    result[1][i].recovery = damageResults[1][i].recovery('%')
+
+    result[0][i].kochance = getKoChance(damageResults[0][i])
+    result[1][i].kochance = getKoChance(damageResults[1][i])
+    }
+  return result
 }
 
 function calculateAllMoves(gen: any, p1: any, p1field: any, p2: any, p2field: any) {
@@ -20,28 +44,26 @@ function calculateAllMoves(gen: any, p1: any, p1field: any, p2: any, p2field: an
   return results
 }
 
-function getFullDesc(gen: any, pm1: any, pm2: any, field: any) {
-  damageResults = performCalculations(gen, pm1, pm2, field)
-  var result: any = [{},{}]
-  for (var i =0; i < 4; i++) {
-    result[0][i] = damageResults[0][i].fullDesc('%', false)
-    result[1][i] = damageResults[1][i].fullDesc('%', false)
+function getKoChance(damageResults: any) {
+  var kochance
+  try {
+    kochance = damageResults.kochance(true)
+  } catch(e: any) {
+    kochance = 0
   }
-  return result
+  return kochance
 }
 
-function getMoveDesc(gen: any, pm1: any, pm2: any, field: any) {
-  damageResults = performCalculations(gen, pm1, pm2, field)
-  var result: any = [{},{}]
-  for (var i =0; i < 4; i++) {
-    result[0][i] = damageResults[0][i].moveDesc('%')
-    result[1][i] = damageResults[1][i].moveDesc('%')
+function getDesc(damageResults: any) {
+  var desc
+  try {
+    desc = damageResults.desc(true)
+  } catch(e: any) {
+    desc = ''
   }
-  return result
+  return desc
 }
 
 export {
-  performCalculations,
-  getFullDesc,
-  getMoveDesc
+  performCalculations
 }

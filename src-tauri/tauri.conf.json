@@ -12,7 +12,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+      "all": true,
       "shell": {
         "all": false,
         "open": true
@@ -48,7 +48,10 @@
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
-        "timestampUrl": ""
+        "timestampUrl": "",
+        "wix": {
+          "language": "zh-CN"
+        }
       }
     },
     "security": {
@@ -57,13 +60,19 @@
     "updater": {
       "active": false
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
         "fullscreen": false,
-        "minWidth": 900,
-        "minHeight": 800,
+        "minWidth": 1068,
+        "minHeight": 870,
         "resizable": true,
-        "title": "Damage Calculator"
+        "transparent": true,
+        "decorations": true,
+        "title": "Damage Calculator",
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "visible": true
       }
     ]
   }

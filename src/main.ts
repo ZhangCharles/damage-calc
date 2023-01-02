@@ -4,6 +4,7 @@ import App from "./App.vue";
 import ElementPlus from "element-plus";
 import 'element-plus/theme-chalk/index.css';
 import 'element-plus/theme-chalk/display.css';
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import router from "./router";
 
 import i18n from "./i18n"

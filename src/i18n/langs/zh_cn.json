@@ -16,6 +16,12 @@
   "Water": "水",
   "Normal": "一般",
   "Fairy": "妖精",
+
+  "Special": "特殊",
+  "Physical": "物理",
+  "Status": "变化",
+
+  "Psychic": "超能",
   "Adamant": "固执",
   "Bashful": "害羞",
   "Bold": "大胆",
@@ -3071,5 +3077,7 @@
   "Gourgeist-*": "南瓜怪人-未知大小",
   "Pumpkaboo-*": "南瓜精-未知大小",
   "Urshifu-Rapid-Strike-Gmax": "武道熊师-连击流-超极巨化",
-  "Toxtricity-Low-Key-Gmax": "颤弦蝾螈-低调形态-超极巨化"
+  "Toxtricity-Low-Key-Gmax": "颤弦蝾螈-低调形态-超极巨化",
+
+  "Moves.": ""
 }
